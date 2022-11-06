@@ -48,14 +48,14 @@
                                 </div>
                             </div>
 
-                            <!-- <div class="form-group ">
+                            <div class="form-group ">
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" name="ingat-saya" /> Ingat saya
                                     </label>
-                                    <a href="#" class="pull-right">Lupa password?</a>
+                                    <!-- <a href="#" class="pull-right">Lupa password?</a> -->
                                 </div>
-                            </div>-->
+                            </div>
 
                             <div class="form-group">
                                 <?php if($this->session->gagal): ?>

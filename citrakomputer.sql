@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `setting` (
 --
 
 INSERT INTO `setting` (`id`, `judul`, `tagline`, `telepon1`, `telepon2`, `email`, `alamat`, `peta`, `tentang`) VALUES
-(1, 'Citra Computer', 'Jl. Kumpulan Kode ', '083129218791', '083119265604', 'citracomputer@gmail.com', 'Jl. Kumpulan Kode ', '', '<h2>Tentang Kami</h2>\r\n<p style="text-align: justify;">Citra Computer merupakan sebuah perusahaan yang bergerak di bidang IT (Komputerisasi). Khusus menyediakan komputer kasir dan aplikasi perangkat lunak atau software&nbsp;untuk restaurant, hotel, minimarket, grosir, petshop, bengkel, salon, butik, apotek, dan accessories lainnya. Memiliki garansi resmi produk dan memiliki support teknisi purna jual/after marketing yang terpercaya.</p>');
+(1, 'Bisa Resep', 'Semua ada resepnya', '083129218791', '083119265604', 'bisaresep@gmail.com', 'Jl. Kumpulan Resep ', '', '<h2>Tentang Kami</h2>\r\n<p style="text-align: justify;">Bisa Resep merupakan sebuah perusahaan yang bergerak di bidang IT (Komputerisasi). Khusus menyediakan komputer kasir dan aplikasi perangkat lunak atau software&nbsp;untuk restaurant, hotel, minimarket, grosir, petshop, bengkel, salon, butik, apotek, dan accessories lainnya. Memiliki garansi resmi produk dan memiliki support teknisi purna jual/after marketing yang terpercaya.</p>');
 
 --
 -- Indexes for dumped tables

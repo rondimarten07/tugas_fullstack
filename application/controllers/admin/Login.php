@@ -22,15 +22,16 @@ class Login extends CI_Controller {
 			$user = $this->input->post('username');
 			$pass = md5($this->input->post('password'));
 			$status = $this->admin_model->cek_user($user, $pass);
-			if($status < 0) {
+			if($status = 0) {
 				$this->session->set_flashdata("error", "Login gagal!");
 			} else {
 				// success
 				// store the user data to session
+				$this->session->set_userdata($user);
 				$this->session->set_userdata($status);
 				$this->session->set_userdata("logged_in", true);
 				// redirect to dashboard
-				redirect("admin/home");
+				redirect('admin/home');
 			}
 		}
 	}

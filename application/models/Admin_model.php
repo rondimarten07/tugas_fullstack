@@ -2,13 +2,13 @@
 
 class Admin_model extends CI_Model{
 
-    // public $id;
-    // public $nama;
-    // public $telepon;
-    // public $username;
-    // public $password;
-    // public $email;
-    // public $akses;
+     public $id;
+     public $nama;
+     public $telepon;
+     public $username;
+     public $password;
+     public $email;
+     public $akses;
 
     function get(){
         return $this->db->get('admin')->result();

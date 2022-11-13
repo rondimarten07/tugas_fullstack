@@ -8,8 +8,7 @@
                             </p>
                             <p></p>
                             <p><a href="<?php echo site_url('admin/profil/edit') ?>">Edit Profil</a> | <a href="#!" data-toggle="modal" data-target="#modal-ubah-password">Ubah Password</a></p>
-                        </div>
-                    
+                        </div> 
                 </div>
 
 

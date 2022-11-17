@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Welcome extends CI_Controller
+{
 
 	/**
 	 * Index Page for this controller.
@@ -19,11 +20,11 @@ class Welcome extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 
-	 function __construct(){
-		 parent::__construct();
-		 $this->load->model(array('produk_model', 'pengaturan_model'));
-
-	 }
+	function __construct()
+	{
+		parent::__construct();
+		$this->load->model(array('produk_model', 'pengaturan_model', 'resep_model'));
+	}
 
 	public function index()
 	{
@@ -37,7 +38,8 @@ class Welcome extends CI_Controller {
 		$this->load->view('depan/footer');
 	}
 
-	function produk(){
+	function produk()
+	{
 		$data['page'] = 'produk';
 		$data['web'] = $this->pengaturan_model->get(1);
 
@@ -76,7 +78,7 @@ class Welcome extends CI_Controller {
 
 		$data['halaman'] = $this->pagination->create_links();
 
-		$dari_offset = ($this->uri->segment(3))? $this->uri->segment(3) : 0;
+		$dari_offset = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 		$data['produk'] = $this->produk_model->get_by_jenis_pagination("barang", $config['per_page'], $dari_offset);
 
 		$this->load->view('depan/header', $data);
@@ -86,7 +88,8 @@ class Welcome extends CI_Controller {
 	}
 
 
-	function jasa(){
+	function jasa()
+	{
 		$data['page'] = 'jasa';
 		$data['web'] = $this->pengaturan_model->get(1);
 
@@ -125,7 +128,7 @@ class Welcome extends CI_Controller {
 
 		$data['halaman'] = $this->pagination->create_links();
 
-		$dari_offset = ($this->uri->segment(3))? $this->uri->segment(3) : 0;
+		$dari_offset = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 		$data['produk'] = $this->produk_model->get_by_jenis_pagination("jasa", $config['per_page'], $dari_offset);
 
 
@@ -135,7 +138,8 @@ class Welcome extends CI_Controller {
 		$this->load->view('depan/footer');
 	}
 
-	function promo(){
+	function promo()
+	{
 		$data['page'] = 'promo';
 		$data['web'] = $this->pengaturan_model->get(1);
 
@@ -174,7 +178,7 @@ class Welcome extends CI_Controller {
 
 		$data['halaman'] = $this->pagination->create_links();
 
-		$dari_offset = ($this->uri->segment(3))? $this->uri->segment(3) : 0;
+		$dari_offset = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 		$data['produk'] = $this->produk_model->get_by_jenis_pagination("promo", $config['per_page'], $dari_offset);
 
 
@@ -184,7 +188,8 @@ class Welcome extends CI_Controller {
 		$this->load->view('depan/footer');
 	}
 
-	function paket(){
+	function paket()
+	{
 		$data['page'] = 'paket';
 		$data['web'] = $this->pengaturan_model->get(1);
 
@@ -223,7 +228,7 @@ class Welcome extends CI_Controller {
 
 		$data['halaman'] = $this->pagination->create_links();
 
-		$dari_offset = ($this->uri->segment(3))? $this->uri->segment(3) : 0;
+		$dari_offset = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 		$data['produk'] = $this->produk_model->get_by_jenis_pagination("paket", $config['per_page'], $dari_offset);
 
 
@@ -233,7 +238,8 @@ class Welcome extends CI_Controller {
 		$this->load->view('depan/footer');
 	}
 
-	function tentang(){
+	function tentang()
+	{
 		$data['page'] = 'tentang';
 
 		$data['web'] = $this->pengaturan_model->get(1);
@@ -244,9 +250,133 @@ class Welcome extends CI_Controller {
 		$this->load->view('depan/footer');
 	}
 
-	function kontak(){
+	function kontak()
+	{
 		$data['page'] = 'kontak';
 		$data['web'] = $this->pengaturan_model->get(1);
+
+		$this->load->view('depan/header', $data);
+		$this->load->view('depan/navbar',  $data);
+		$this->load->view('depan/content');
+		$this->load->view('depan/footer');
+	}
+	function makanan()
+	{
+		$data['page'] = 'makanan';
+		$data['web'] = $this->pengaturan_model->get(1);
+		$data['resep_makanan'] = $this->resep_model->getallresep();
+
+		$this->load->view('depan/header', $data);
+		$this->load->view('depan/navbar',  $data);
+		$this->load->view('depan/content');
+		$this->load->view('depan/footer');
+	}
+	function detailresep($n)
+	{
+		$data['page'] = 'detailresep';
+		$data['web'] = $this->pengaturan_model->get(1);
+		$data['resep_makanan'] = $this->resep_model->get($n);
+		$data['index'] = $n;
+
+		$this->load->view('depan/header', $data);
+		$this->load->view('depan/navbar',  $data);
+		$this->load->view('depan/content');
+		$this->load->view('depan/footer');
+	}
+	function minuman()
+	{
+		$data['page'] = 'minuman';
+		$data['web'] = $this->pengaturan_model->get(1);
+		$data['resep_minuman'] = $this->resep_model->getallresep_minuman();
+
+		$this->load->view('depan/header', $data);
+		$this->load->view('depan/navbar',  $data);
+		$this->load->view('depan/content');
+		$this->load->view('depan/footer');
+	}
+	function detailresep_minuman($n)
+	{
+		$data['page'] = 'detailresep_minuman';
+		$data['web'] = $this->pengaturan_model->get(1);
+		$data['resep_minuman'] = $this->resep_model->get_minuman($n);
+		$data['index'] = $n;
+
+		$this->load->view('depan/header', $data);
+		$this->load->view('depan/navbar',  $data);
+		$this->load->view('depan/content');
+		$this->load->view('depan/footer');
+	}
+	function tambahresep()
+	{
+		$data['page'] = 'tambahresep';
+		$data['web'] = $this->pengaturan_model->get(1);
+
+		$this->load->view('depan/header', $data);
+		$this->load->view('depan/navbar',  $data);
+		$this->load->view('depan/content');
+		$this->load->view('depan/footer');
+	}
+	function hapusresep_makanan($n)
+	{
+		$data['page'] = 'back';
+		$data['web'] = $this->pengaturan_model->get(1);
+		$this->resep_model->hapusresep_makanan($n);
+
+		$this->load->view('depan/header', $data);
+		$this->load->view('depan/navbar',  $data);
+		$this->load->view('depan/content');
+		$this->load->view('depan/footer');
+	}
+	function hapusresep_minuman($n)
+	{
+		$data['page'] = 'back';
+		$data['web'] = $this->pengaturan_model->get(1);
+		$this->resep_model->hapusresep_minuman($n);
+
+		$this->load->view('depan/header', $data);
+		$this->load->view('depan/navbar',  $data);
+		$this->load->view('depan/content');
+		$this->load->view('depan/footer');
+	}
+	function ubahresep_makanan($n)
+	{
+		$data['page'] = 'ubahresep_makanan';
+		$data['web'] = $this->pengaturan_model->get(1);
+		$data['resep_makanan'] = $this->resep_model->get($n);
+
+		$this->load->view('depan/header', $data);
+		$this->load->view('depan/navbar',  $data);
+		$this->load->view('depan/content');
+		$this->load->view('depan/footer');
+	}
+	function ubahresep_minuman($n)
+	{
+		$data['page'] = 'ubahresep_minuman';
+		$data['web'] = $this->pengaturan_model->get(1);
+		$data['resep_minuman'] = $this->resep_model->get_minuman($n);
+		//$this->resep_model->ubahresep_minuman($n);
+
+		$this->load->view('depan/header', $data);
+		$this->load->view('depan/navbar',  $data);
+		$this->load->view('depan/content');
+		$this->load->view('depan/footer');
+	}
+	function ubahmakanan()
+	{
+		$data['page'] = 'back';
+		$data['web'] = $this->pengaturan_model->get(1);
+		$this->resep_model->ubahresep_makanan($this->input->post('id'));
+
+		$this->load->view('depan/header', $data);
+		$this->load->view('depan/navbar',  $data);
+		$this->load->view('depan/content');
+		$this->load->view('depan/footer');
+	}
+	function ubahminuman()
+	{
+		$data['page'] = 'back';
+		$data['web'] = $this->pengaturan_model->get(1);
+		$this->resep_model->ubahresep_minuman($this->input->post('id'));
 
 		$this->load->view('depan/header', $data);
 		$this->load->view('depan/navbar',  $data);

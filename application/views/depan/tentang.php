@@ -9,9 +9,6 @@
         </div>
       </div>
     </div>
-    <div>
-      halo budi
-    </div>
 
   </div>
 </div>

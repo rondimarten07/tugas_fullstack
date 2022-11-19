@@ -5,7 +5,7 @@ class Profil extends CI_Controller {
     function __construct(){
         parent::__construct();
 		$this->load->model('admin_model');
-        $this->admin_model->cek_session();
+        //$this->admin_model->cek_session();
     }
 
     function index(){

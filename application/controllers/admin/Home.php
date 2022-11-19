@@ -4,7 +4,7 @@ class Home extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
-		$this->admin_model->cek_session();
+		//$this->admin_model->cek_session();
 		$this->load->model('produk_model');
 	}
 
@@ -24,3 +24,4 @@ class Home extends CI_Controller {
 	}
 
 }
+

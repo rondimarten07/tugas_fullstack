@@ -2,13 +2,13 @@
 
 class Admin_model extends CI_Model{
 
-    // public $id;
-    // public $nama;
-    // public $telepon;
-    // public $username;
-    // public $password;
-    // public $email;
-    // public $akses;
+     public $id;
+     public $nama;
+     public $telepon;
+     public $username;
+     public $password;
+     public $email;
+     public $akses;
 
     function get(){
         return $this->db->get('admin')->result();
@@ -43,9 +43,9 @@ class Admin_model extends CI_Model{
         }
     }
 
-    public function cek_user($username, $password) {
-        $this->db->where("email='$username' or username='$username'");
-        $this->db->where('password', $password);
+    public function cek_user($user, $pass) {
+        $this->db->where('username',$user);
+        $this->db->where('password', $pass);
         $query = $this->db->get('admin');
 
         return $query->row_array();

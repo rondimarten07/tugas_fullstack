@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo $web->judul ?></title>
+    <title>
+        <?php echo $web->judul ?>
+    </title>
 
-	<!-- Ikon -->
-	<link rel="icon" href="<?php echo base_url('assets/tjc/img/logo-tangsi.png') ?>" />
+    <!-- Ikon -->
+    <link rel="icon" href="<?php echo base_url('assets/tjc/img/logo-tangsi.png') ?>" />
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -20,39 +23,90 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-	<style>
+    <style>
     /* Remove the navbar's default rounded borders and increase the bottom margin */
     .navbar {
-      margin-bottom: 50px;
-      border-radius: 0;
+        border-radius: 0;
+        margin-bottom: 0;
+        background-color: #B4846C;
     }
+
+
+    .dropdown-menu>li>a {
+        color: #E5B299;
+    }
+
 
     /* Remove the jumbotron's default bottom margin */
-     .jumbotron {
-      margin-bottom: 0;
-	  background: #0f255a;
-	  color: white;
+    .jumbotron {
+        background-image: url("assets/tjc/img/bg_home.png");
+        margin-bottom: 0;
+        background-size: cover;
+
     }
 
-	.judul > a{
-		color: white;
-		text-decoration: none;
-	}
+    .judul>a {
+        color: white;
+        text-decoration: none;
+    }
 
     /* Add a gray background color and some padding to the footer */
     footer {
-      background-color: #f2f2f2;
-      padding: 25px;
+        background-color: #f2f2f2;
+        padding: 25px;
     }
 
-	.panel-body img:hover{
-		opacity:0.9;
-		cursor: pointer;
-	}
-  </style>
+    .panel-body img:hover {
+        opacity: 0.9;
+        cursor: pointer;
+    }
 
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    .navbar-form {
+        padding: 20px;
+        background: #B4846C;
+        box-shadow: 0 0 20px black;
+        border-radius: 5px;
+
+
+    }
+
+    .navbar-form {
+        margin-bottom: 50px;
+        margin-top: -40px;
+
+    }
+
+    .judulkonten {
+        font-size: 24px;
+        font-weight: 600;
+
+    }
+
+    .form-group>input {
+        background-color: #FCDEC0;
+
+    }
+
+
+    .btn-default {
+        background-color: #7D5A50;
+        color: #FCDEC0;
+    }
+
+    .judulkonten {
+        color: #7D5A50;
+    }
+
+    .judulkonten2 {
+        color: #7D5A50;
+    }
+    </style>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="<?php echo base_url(); ?>assets/tjc/js/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="<?php echo base_url(); ?>assets/js/jquery.min.js"><\/script>')</script>
-  </head>
-  <body>
+    <script>
+    window.jQuery || document.write('<script src="<?php echo base_url(); ?>assets/js/jquery.min.js"><\/script>')
+    </script>
+</head>
+
+<body>

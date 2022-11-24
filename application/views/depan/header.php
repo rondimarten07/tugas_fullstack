@@ -10,7 +10,7 @@
     </title>
 
     <!-- Ikon -->
-    <link rel="icon" href="<?php echo base_url('assets/tjc/img/logo-tangsi.png') ?>" />
+    <link rel="icon" href="<?php echo base_url('assets/tjc/img/logo_bisaresep.png') ?>" />
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -38,12 +38,8 @@
 
 
     /* Remove the jumbotron's default bottom margin */
-    .jumbotron {
-        background-image: url("assets/tjc/img/bg_home.png");
-        margin-bottom: 0;
-        background-size: cover;
 
-    }
+
 
     .judul>a {
         color: white;
@@ -52,7 +48,7 @@
 
     /* Add a gray background color and some padding to the footer */
     footer {
-        background-color: #f2f2f2;
+        background-color: #B4846C;
         padding: 25px;
     }
 
@@ -66,11 +62,6 @@
         background: #B4846C;
         box-shadow: 0 0 20px black;
         border-radius: 5px;
-
-
-    }
-
-    .navbar-form {
         margin-bottom: 50px;
         margin-top: -40px;
 

@@ -28,6 +28,7 @@
                     </ul>
                 </li>
             </ul>
+
             <ul class="nav navbar-nav navbar-right">
 
                 <li><a href="<?php echo site_url('admin') ?>" style="color: #E5B299">Masuk <i
@@ -43,8 +44,8 @@
         </div>
 
         <div class="col-md-4 text-center">
-            <img src="<?php echo base_url('assets/tjc/img/logo-tangsi1.png') ?>"
-                style="display:inline-block max-width:20px; background: rgba(0,0,0,0.3); border-radius:50%;" />
+            <img src="<?php echo base_url('assets/tjc/img/logo_bisaresep.png') ?>"
+                style="display:inline-block; max-width: 85%; background-color: rgba(204,203,202,0.80); padding: 15px;" />
             <a href="<?php echo site_url() ?>">
 
                 <h2 style="color: white;">
@@ -88,3 +89,11 @@
         <h6 class="judulkonten2">dijamin berkualitas</h6>
     </div>
 </div>
+
+<style>
+.jumbotron {
+    background-image: url("assets/tjc/img/bg_home.png");
+    margin-bottom: 0;
+    background-size: cover;
+}
+</style>

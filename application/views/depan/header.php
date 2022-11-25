@@ -50,6 +50,7 @@
     footer {
         background-color: #B4846C;
         padding: 25px;
+        color: #FCDEC0;
     }
 
     .panel-body img:hover {
@@ -65,6 +66,12 @@
         margin-bottom: 50px;
         margin-top: -40px;
 
+    }
+
+    .jumbotron {
+        background-image: url("assets/tjc/img/bg_home.png");
+        margin-bottom: 0;
+        background-size: cover;
     }
 
     .judulkonten {

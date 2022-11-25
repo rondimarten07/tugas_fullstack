@@ -31,8 +31,9 @@ class Welcome extends CI_Controller {
 		$data['produk'] = $this->produk_model->get_by_jenis('barang');
 		$data['web'] = $this->pengaturan_model->get(1);
 
-		$this->load->view('depan/header', $data);
+		
 		$this->load->view('depan/navbar',  $data);
+		$this->load->view('depan/header', $data);
 		$this->load->view('depan/content');
 		$this->load->view('depan/footer');
 	}
@@ -79,8 +80,9 @@ class Welcome extends CI_Controller {
 		$dari_offset = ($this->uri->segment(3))? $this->uri->segment(3) : 0;
 		$data['produk'] = $this->produk_model->get_by_jenis_pagination("barang", $config['per_page'], $dari_offset);
 
-		$this->load->view('depan/header', $data);
+		
 		$this->load->view('depan/navbar',  $data);
+		$this->load->view('depan/header', $data);
 		$this->load->view('depan/content');
 		$this->load->view('depan/footer');
 	}
@@ -178,8 +180,9 @@ class Welcome extends CI_Controller {
 		$data['produk'] = $this->produk_model->get_by_jenis_pagination("promo", $config['per_page'], $dari_offset);
 
 
-		$this->load->view('depan/header', $data);
+		
 		$this->load->view('depan/navbar',  $data);
+		$this->load->view('depan/header', $data);
 		$this->load->view('depan/content');
 		$this->load->view('depan/footer');
 	}
@@ -227,19 +230,22 @@ class Welcome extends CI_Controller {
 		$data['produk'] = $this->produk_model->get_by_jenis_pagination("paket", $config['per_page'], $dari_offset);
 
 
-		$this->load->view('depan/header', $data);
+		
 		$this->load->view('depan/navbar',  $data);
+		$this->load->view('depan/header', $data);
 		$this->load->view('depan/content');
 		$this->load->view('depan/footer');
 	}
+
 
 	function tentang(){
 		$data['page'] = 'tentang';
 
 		$data['web'] = $this->pengaturan_model->get(1);
 
-		$this->load->view('depan/header', $data);
+		
 		$this->load->view('depan/navbar',  $data);
+		$this->load->view('depan/header', $data);
 		$this->load->view('depan/content');
 		$this->load->view('depan/footer');
 	}
@@ -248,8 +254,9 @@ class Welcome extends CI_Controller {
 		$data['page'] = 'kontak';
 		$data['web'] = $this->pengaturan_model->get(1);
 
-		$this->load->view('depan/header', $data);
+		
 		$this->load->view('depan/navbar',  $data);
+		$this->load->view('depan/header', $data);
 		$this->load->view('depan/content');
 		$this->load->view('depan/footer');
 	}

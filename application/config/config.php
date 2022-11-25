@@ -23,8 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost:8080/tugas_fullstack/';
-
+$config['base_url'] = 'http://localhost:8080/tugas_fullstack';
 /*
 |--------------------------------------------------------------------------
 | Index File

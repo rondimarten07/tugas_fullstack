@@ -6,19 +6,12 @@
 
         <div class=" btn-group" role="group" aria-label="...">
 
-            <a href="<?php echo site_url('admin/produk') ?>"
-                class="btn btn-default <?php echo $url_jenis == '' ? 'active disabled' : '' ?>">All <span
-                    class="badge"><?php echo $total_semua ?></span></a>
-            <a href="<?php echo site_url('admin/produk/jenis/barang') ?>"
-                class="btn btn-default <?php echo $url_jenis == 'barang' ? 'active disabled' : '' ?>">Makanan <span
-                    class="badge"><?php echo $total_barang ?></span></a>
-            <a href="<?php echo site_url('admin/produk/jenis/jasa') ?>"
-                class="btn btn-default <?php echo $url_jenis == 'jasa' ? 'active disabled' : '' ?>">Minuman <span
-                    class="badge"><?php echo $total_jasa ?></a>
+            <a href="<?php echo site_url('admin/produk') ?>" class="btn btn-default <?php echo $url_jenis == '' ? 'active disabled' : '' ?>">All <span class="badge"><?php echo $total_semua ?></span></a>
+            <a href="<?php echo site_url('admin/produk/jenis/barang') ?>" class="btn btn-default <?php echo $url_jenis == 'barang' ? 'active disabled' : '' ?>">Makanan <span class="badge"><?php echo $total_barang ?></span></a>
+            <a href="<?php echo site_url('admin/produk/jenis/jasa') ?>" class="btn btn-default <?php echo $url_jenis == 'jasa' ? 'active disabled' : '' ?>">Minuman <span class="badge"><?php echo $total_jasa ?></a>
 
         </div>
-        <a href="#!" class="btn btn-default" style="margin-left: 20px;" data-toggle="modal"
-            data-target="#modal-tambah-user" onclick="$('#form-tambah').toggle('slide')"><i class="fa fa-plus"></i>
+        <a href="#!" class="btn btn-default" style="margin-left: 20px;" data-toggle="modal" data-target="#modal-tambah-user" onclick="$('#form-tambah').toggle('slide')"><i class="fa fa-plus"></i>
             Tambah</a>
     </div>
 </div>
@@ -57,11 +50,9 @@
                     <div class="form-group">
                         <label for="jenis">Jenis</label><br>
                         <span class="check">
-                            <label><input type="radio" name="jenis" value="barang" required>
-                                Barang</label>&nbsp;
-                            <label><input type="radio" name="jenis" value="jasa" required> Jasa</label>&nbsp;
-                            <label><input type="radio" name="jenis" value="paket" required> Paket</label>&nbsp;
-                            <label><input type="radio" name="jenis" value="promo" required> Promo</label>
+                            <label><input type="radio" name="jenis" value="makanan" required>
+                                Makanan</label>&nbsp;
+                            <label><input type="radio" name="jenis" value="minuman" required> Minuman</label>&nbsp;
                         </span>
                     </div>
 
@@ -71,8 +62,7 @@
                 <div class="col-md-8">
                     <div class="form-group">
                         <label for="nama-barang">Keterangan/Spesifikasi</label>
-                        <textarea name="keterangan" class="form-control" rows="15"
-                            placeholder="Keterangan atau spesifikasi..."></textarea>
+                        <textarea name="keterangan" class="form-control" rows="15" placeholder="Keterangan atau spesifikasi..."></textarea>
                     </div>
                     <div class="form-group">
                         <label for="nama-barang">Foto/Gambar</label>
@@ -91,32 +81,32 @@
 
 
 
-<script src="<?php echo base_url()?>assets/tinymce/js/tinymce/tinymce.min.js"></script>
+<script src="<?php echo base_url() ?>assets/tinymce/js/tinymce/tinymce.min.js"></script>
 <script>
-tinymce.init({
-    selector: 'textarea',
-    menubar: '',
-    fontsize_formats: "16pt 9pt 10pt 11pt 12pt 26pt 36pt",
-    theme: 'modern',
-    setup: function(ed) {
-        ed.on('init', function() {
-            this.getDoc().body.style.fontSize = '16px';
-        });
-    }
-});
+    tinymce.init({
+        selector: 'textarea',
+        menubar: '',
+        fontsize_formats: "16pt 9pt 10pt 11pt 12pt 26pt 36pt",
+        theme: 'modern',
+        setup: function(ed) {
+            ed.on('init', function() {
+                this.getDoc().body.style.fontSize = '16px';
+            });
+        }
+    });
 </script>
 <script>
-$(document).ready(function() {
-    // $('#angka1').maskMoney();
-    // $('#angka2').maskMoney({prefix:'US$'});
-    $('#harga-barang').maskMoney({
-        prefix: 'Rp ',
-        thousands: '.',
-        decimal: ',',
-        precision: 0
+    $(document).ready(function() {
+        // $('#angka1').maskMoney();
+        // $('#angka2').maskMoney({prefix:'US$'});
+        $('#harga-barang').maskMoney({
+            prefix: 'Rp ',
+            thousands: '.',
+            decimal: ',',
+            precision: 0
+        });
+        // $('#angka4').maskMoney();
     });
-    // $('#angka4').maskMoney();
-});
 </script>
 
 
@@ -126,46 +116,40 @@ $(document).ready(function() {
 <div class="panel panel-default" style="background-color: #FCDEC0; border-radius: 20px;">
     <div class="panel-body table-responsive">
 
-        <?php if(count($produk) > 0) : ?>
-        <!-- Tampilkan tabel produk -->
-        <table class="table table-striped" style="color: #7D5A50;  ">
-            <thead>
-                <tr style="color: #7D5A50;">
-                    <th>Kode Produk</th>
-                    <th>Nama</th>
-                    <th>Harga</th>
-                    <th>Jenis</th>
-                    <th>Tindakan</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach($produk as $barang){ ?>
-                <tr style="background-color: #FCDEC0; border-color: white;">
-                    <td><?php echo $barang->id ?></td>
-                    <td>
-                        <a href="#!"
-                            onclick="editGambar('<?php echo base_url('assets/tjc/img/produk/'.$barang->foto) ?>', '<?php echo $barang->id ?>' )"><img
-                                src="<?php echo base_url('assets/tjc/img/produk/'.$barang->foto) ?>"
-                                style="max-width:24px;max-height:24px" /></a>
-                        &nbsp;<?php echo $barang->nama ?>
-                    </td>
-                    <td><?php echo $barang->harga ?></td>
-                    <td><?php echo ucfirst($barang->jenis) ?></td>
-                    <td>
-                        <a href="<?php echo site_url('admin/produk/edit/' . $barang->id) ?>"><i
-                                class="fa fa-pencil"></i> Edit</a>&nbsp;&nbsp;
-                        <a href="<?php echo site_url('admin/produk/detail/' . $barang->id) ?>"><i
-                                class="fa fa-file-text-o"></i> Detail</a>&nbsp;&nbsp;
-                        <a href="#!" onclick="hapus('<?php echo $barang->id ?>')" class="text-danger"><i
-                                class="fa fa-trash"></i> Hapus</a>&nbsp;
-                    </td>
-                </tr>
-                <?php } ?>
-            </tbody>
-        </table>
-        <?php else: ?>
-        <!-- Tampilkan pesan kosong -->
-        <span>Produk masih kosong, silahkan tambahkan!</span>
+        <?php if (count($produk) > 0) : ?>
+            <!-- Tampilkan tabel produk -->
+            <table class="table table-striped" style="color: #7D5A50;  ">
+                <thead>
+                    <tr style="color: #7D5A50;">
+                        <th>Kode Produk</th>
+                        <th>Nama</th>
+                        <th>Harga</th>
+                        <th>Jenis</th>
+                        <th>Tindakan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($produk as $barang) { ?>
+                        <tr style="background-color: #FCDEC0; border-color: white;">
+                            <td><?php echo $barang->id ?></td>
+                            <td>
+                                <a href="#!" onclick="editGambar('<?php echo base_url('assets/tjc/img/produk/' . $barang->foto) ?>', '<?php echo $barang->id ?>' )"><img src="<?php echo base_url('assets/tjc/img/produk/' . $barang->foto) ?>" style="max-width:24px;max-height:24px" /></a>
+                                &nbsp;<?php echo $barang->nama ?>
+                            </td>
+                            <td><?php echo $barang->harga ?></td>
+                            <td><?php echo ucfirst($barang->jenis) ?></td>
+                            <td>
+                                <a href="<?php echo site_url('admin/produk/edit/' . $barang->id) ?>"><i class="fa fa-pencil"></i> Edit</a>&nbsp;&nbsp;
+                                <a href="<?php echo site_url('admin/produk/detail/' . $barang->id) ?>"><i class="fa fa-file-text-o"></i> Detail</a>&nbsp;&nbsp;
+                                <a href="#!" onclick="hapus('<?php echo $barang->id ?>')" class="text-danger"><i class="fa fa-trash"></i> Hapus</a>&nbsp;
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        <?php else : ?>
+            <!-- Tampilkan pesan kosong -->
+            <span>Produk masih kosong, silahkan tambahkan!</span>
         <?php endif; ?>
 
     </div>
@@ -177,11 +161,9 @@ $(document).ready(function() {
 <div class="modal fade" id="modal-edit-gambar" tabindex="-1" role="dialog" aria-labelledby="editGambar">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="<?php echo site_url('admin/produk/update_gambar') ?>" method="post"
-                enctype="multipart/form-data">
+            <form action="<?php echo site_url('admin/produk/update_gambar') ?>" method="post" enctype="multipart/form-data">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Ubah Gambar</h4>
                 </div>
                 <div class="modal-body">
@@ -206,12 +188,12 @@ $(document).ready(function() {
 <!-- Modal edit Gambar -->
 
 <script>
-function editGambar(urlGambar, id) {
-    console.log(id);
-    $("#id-edit").val(id);
-    $("#edit-gambar-produk").attr("src", urlGambar);
-    $("#modal-edit-gambar").modal("show");
-}
+    function editGambar(urlGambar, id) {
+        console.log(id);
+        $("#id-edit").val(id);
+        $("#edit-gambar-produk").attr("src", urlGambar);
+        $("#modal-edit-gambar").modal("show");
+    }
 </script>
 
 
@@ -221,8 +203,7 @@ function editGambar(urlGambar, id) {
         <div class="modal-content">
 
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Konfirmasi</h4>
             </div>
             <div class="modal-body">
@@ -240,24 +221,24 @@ function editGambar(urlGambar, id) {
 
 
 <!-- Libarary -->
-<script src="<?php echo base_url('assets/plugin-jquery/jquery.maskMoney.min.js')?>"></script>
+<script src="<?php echo base_url('assets/plugin-jquery/jquery.maskMoney.min.js') ?>"></script>
 
 <script>
-$(document).ready(function() {
-    //$('#angka1').maskMoney();
-    //$('#angka2').maskMoney({prefix:'US$'});
-    $('#harga-barang').maskMoney({
-        prefix: 'Rp ',
-        thousands: '.',
-        decimal: ',',
-        precision: 0
+    $(document).ready(function() {
+        //$('#angka1').maskMoney();
+        //$('#angka2').maskMoney({prefix:'US$'});
+        $('#harga-barang').maskMoney({
+            prefix: 'Rp ',
+            thousands: '.',
+            decimal: ',',
+            precision: 0
+        });
+        //$('#angka4').maskMoney();
     });
-    //$('#angka4').maskMoney();
-});
 
 
-function hapus(id) {
-    $("#yakin-hapus").attr("href", "<?php echo site_url('admin/produk/hapus/');?>/" + id)
-    $("#modal-hapus").modal('show');
-}
+    function hapus(id) {
+        $("#yakin-hapus").attr("href", "<?php echo site_url('admin/produk/hapus/'); ?>/" + id)
+        $("#modal-hapus").modal('show');
+    }
 </script>

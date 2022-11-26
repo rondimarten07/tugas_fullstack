@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -64,3 +64,6 @@ $route['promo'] = 'welcome/promo';
 $route['paket'] = 'welcome/paket';
 $route['tentang'] = 'welcome/tentang';
 $route['kontak'] = 'welcome/kontak';
+$route['detailresep'] = 'welcome/detailresep';
+$route['makanan'] = 'welcome/makanan';
+$route['minuman'] = 'welcome/minuman';
